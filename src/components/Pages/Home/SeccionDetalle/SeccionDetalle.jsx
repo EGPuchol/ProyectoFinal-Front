@@ -118,5 +118,5 @@ function SeccionDetalle({ datos, salud, adopcion }) {
     </div>
   );
 }
-
+//hola
 export default SeccionDetalle;
