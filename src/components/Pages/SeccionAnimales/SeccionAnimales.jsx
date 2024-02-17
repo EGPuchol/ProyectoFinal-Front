@@ -168,6 +168,7 @@ const SeccionAnimales = () => {
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
+            <Link to= {`/Adopcion/${animal._id}`}>
             <li key={animal._id} className="individual_animal_container">
               <div className="animal_photo">
                 <img src={animal.imagen} alt={animal.nombre} />
@@ -183,6 +184,7 @@ const SeccionAnimales = () => {
                 </div>
               </div>
             </li>
+            </Link>
           ))}
         </ul>
       </div>

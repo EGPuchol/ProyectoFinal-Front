@@ -8,6 +8,7 @@ import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
 import { Carrousel } from './components/Pages/Carrousel/Carrousel';
 import EstadoAdopcion from './components/Pages/EstadoAdopcion/EstadoAdopcion';
+import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <Route path = "/Perfil" element= {<SeccionPerfil/>} />
         <Route path = "/OtrosServicios" element= {<SeccionOtrosServicios/>} />
         <Route path = "/estadoAdopcion" element= {<EstadoAdopcion/>} />
-
+        <Route path='/Adopcion/:_id' element={<SeccionDetalle/>} />
         </Routes> 
       </BrowserRouter>
     </>
