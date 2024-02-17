@@ -8,6 +8,7 @@ import "./SeccionDetalles.css";
 import "./SeccionDetalleSalud.css";
 import "./SeccionDetallesAdopcion.css";
 import SeccionDetallepopup from "./SeccionDetallepopup";
+import Nav from "../../../Core/Nav/Nav";
 
 function SeccionDetalle({ datos, salud, adopcion }) {
   const [animals, setDetalleAnimals] = useState({});
@@ -115,6 +116,7 @@ function SeccionDetalle({ datos, salud, adopcion }) {
           </p>
         </SeccionDetallepopup>
       </div>
+      <Nav></Nav>
     </div>
   );
 }
