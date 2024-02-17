@@ -12,6 +12,8 @@ import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetall
 import { Formulario } from './components/Formulario/Formulario';
 import { Formulario2 } from './components/Formulario/Formulario2';
 import { Formulario3 } from './components/Formulario/Formulario3';
+import { Acceder } from './components/Pages/Acceder/Acceder';
+import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
 
 
 
@@ -21,6 +23,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path= "/" element= {<Home/>}/>
+        <Route path= "/Acceder" element= {<Acceder/>}/>
+        <Route path= "/Registro" element= {<SeccionRegistro/>}/>
         <Route path= "/Carrousel" element= {<Carrousel/>}/>
         <Route path = "/Mapa" element= {<SeccionMapa/>} />
         <Route path = "/Adopcion" element= {<SeccionAnimales/>} />
