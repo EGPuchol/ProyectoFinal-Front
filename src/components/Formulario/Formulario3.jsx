@@ -44,6 +44,7 @@ export const Formulario3 = () => {
 
   return (
     <>
+    <div className="formulario">
       <form onSubmit={submit}>
         <h5> Formulario de Adopción </h5>
         <BarraProgreso currentStep={3} totalSteps={3} />
@@ -274,6 +275,7 @@ export const Formulario3 = () => {
 
         <button type="submit"> Enviar </button>
       </form>
+      </div>
 
       {showPopup && (
         <div className="popup-overlay" onClick={() => setShowPopup(false)}>
@@ -291,7 +293,7 @@ export const Formulario3 = () => {
               la entrevista personal.
             </p>
             <img
-            src={`${process.env.PUBLIC_URL}/images/undrawPlayfulCatRchv@2x.png`}
+            src={`${process.env.PUBLIC_URL}/images/undrawPlayfulCatRchv2x.png`}
             alt="Ilustración"
             />
           </div>

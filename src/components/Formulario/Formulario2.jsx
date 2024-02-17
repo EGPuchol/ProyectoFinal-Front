@@ -44,6 +44,7 @@ export const Formulario2 = () => {
 
   return (
     <>
+    <div className="formulario">
       <form onSubmit={submit}>
         <h5> Formulario de Adopción </h5>
         <BarraProgreso currentStep={2} totalSteps={3}/>
@@ -137,6 +138,7 @@ export const Formulario2 = () => {
 
         <button type="submit"> Continuar </button>
       </form>
+      </div>
     </>
   );
 };

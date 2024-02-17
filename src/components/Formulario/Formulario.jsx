@@ -51,7 +51,7 @@ export const Formulario = ({statusAdop}) => {
 
   return (
     <>
-    
+    <div className="formulario">
       <form onSubmit={submit}>
         <h5> Formulario de Adopción </h5>
         <BarraProgreso currentStep={1} totalSteps={3} />
@@ -131,6 +131,7 @@ export const Formulario = ({statusAdop}) => {
 
        <button type="submit" disabled={!state.AceptaTerminos} className={state.AceptaTerminos ? 'enabled' : ''}> Continuar </button>
       </form>
+      </div>
     </>
   );
 };
