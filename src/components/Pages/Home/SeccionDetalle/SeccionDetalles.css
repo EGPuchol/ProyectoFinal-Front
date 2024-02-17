@@ -1,0 +1,213 @@
+.menuDetalle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.animalfoto {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.nombreCiudad {
+  background-color: #c4ef92;
+  border: 3px solid #8bc34a;
+  border-radius: 8px;
+  width: 99%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  bottom: 15px;
+  position: relative;
+  font-size: 18px;
+}
+
+.historia {
+  border: 3px solid #8bc34a;
+  text-align: justify;
+  padding: 5px;
+}
+
+.detalleDatos {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.detallesespecie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.detallesNacimiento {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detallesexo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detalletamano {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detallepeso {
+  display: flex;
+  justify-content: space-between;
+}
+
+.personalidad2 {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.interior2 {
+  border: 3px solid #8bc34a;
+  background-color: #c4ef92;
+  width: 30%;
+  height: 40px;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fotopatita {
+  width: 45px;
+}
+
+.detalleespecie2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.detallenacimiento2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.detallesexo2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.detalletamano2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.detallepeso2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.detallepersonalidad {
+  color: #8bc34a;
+  font-size: 20px;
+}
+
+.historia {
+  border: 3px solid #8bc34a;
+  text-align: justify;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-btn.btn-4 {
+  color: #8bc34a;
+  font-size: 25px;
+}
+
+.detallesbuttonadoptar2 {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.detallesbuttonadoptar {
+  border: 3px solid #8bc34a;
+  background-color: #c4ef92;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 18px;
+
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 80%; /* Utiliza un posicionamiento fijo para el modal */
+}
+
+.fotomodal {
+  object-fit: cover;
+  width: 100%;
+}
+
+.tituloadopcion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.parrafoadopcion {
+  text-align: center;
+  margin: 30px;
+}
+
+.preguntaadopcion2 {
+  font-size: 18px;
+  color: #8bc34a;
+  margin: 18px;
+  text-align: center;
+}
+
+.cancelaradoptar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
