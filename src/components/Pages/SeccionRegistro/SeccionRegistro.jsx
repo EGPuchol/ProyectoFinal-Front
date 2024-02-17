@@ -14,6 +14,8 @@ const doSubmit = (data) =>{
     console.log(data)
 }
 
+//hola
+
   return (
     <div className='todoRegistro'>
       <div className='registrarse'>
