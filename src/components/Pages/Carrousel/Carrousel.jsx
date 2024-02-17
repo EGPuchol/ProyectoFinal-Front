@@ -2,6 +2,9 @@ import OwlCarousel from 'react-owl-carousel';
 import "./Carrousel.css" 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import img1 from "../../../images/servicio-animal.png";
+import img2 from "../../../images/movil_animal.png";
+import img3 from "../../../images/cajita_animal.png";
 
 
 const options = {
@@ -38,16 +41,16 @@ export const Carrousel = () => {
       <div>
         <OwlCarousel className='owl-theme' {...options}>
     <div class='item1'>
-        <img className='imagen' src="images/servicio-animal.png" alt="img1" />
+        <img className='imagen' src={img1} alt="img1" />
         <h4 className='texto1'>Encuentra todo tipo de servicios que tienes cerca de ti</h4>
     </div>
     <div class='item2'>
-        <img className='imagen' src="images/movil_animal.png" alt="img2" />
+        <img className='imagen' src={img2} alt="img2" />
         <h4>Adopta desde tu movil</h4>
         <p>Puedes acceder al perfil de muchos animales que estan en adopcion y filtrarlos para encontrar el que mejor se adapte a ti</p>
     </div>
     <div class='item3'>
-        <img className='imagen' src="images/cajita_animal.png" alt="img3" />
+        <img className='imagen' src={img3} alt="img3" />
         <h4>Si eres una asociacion sube a tus peludos para darles más difusion </h4>
     </div>
         </OwlCarousel>

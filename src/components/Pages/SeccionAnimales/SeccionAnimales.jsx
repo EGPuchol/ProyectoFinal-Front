@@ -10,78 +10,83 @@ const SeccionAnimales = () => {
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
     ciudad: "",
-    especies: [],
-    sexo: [],
-    tamaño: [],
+    especie: "",
+    sexo: "",
+    tamaño: "",
   });
+  const [initialLoad, setInitialLoad] = useState(true);
   const [cities, setCities] = useState([]);
   const [species, setSpecies] = useState([]);
-  const [sexes, setSexes] = useState([]);
-  const [sizes, setSizes] = useState([]);
-  const [showFilters, setShowFilters] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3300/animals")
-      .then((response) => {
-        console.log(response.data);
-        setAnimals(response.data);
-        setOriginalAnimals(response.data);
-        setCities([...new Set(response.data.map(animal => animal.ciudad))]);
-        setSpecies([...new Set(response.data.map(animal => animal.especie))]);
-        setSexes([...new Set(response.data.map(animal => animal.sexo))]);
-        setSizes([...new Set(response.data.map(animal => animal.tamaño))]);
-      })
-      .catch((error) => {
-        console.error("Error al hacer la solicitud:", error);
-        setError(error);
-      });
-  }, []);
+    if (initialLoad) {
+      axios
+        .get("http://localhost:3300/animals")
+        .then((response) => {
+          console.log(response.data);
+          setAnimals(response.data);
+          setOriginalAnimals(response.data); // Guardar datos originales
+          setInitialLoad(false);
+        })
+        .catch((error) => {
+          console.error("Error al hacer la solicitud:", error);
+          setError(error);
+        });
+    }
+  }, [initialLoad]);
 
   useEffect(() => {
-    const filteredAnimals = filtrarAnimales(originalAnimals);
-    setAnimals(filteredAnimals);
-  }, [filters, searchTerm]);
+    if (!initialLoad) {
+      // Filtrar los animales originales con los nuevos filtros
+      setAnimals(filtrarAnimales(originalAnimals));
+    }
+  }, [filters]);
+
+  useEffect(() => {
+    const uniqueCities = new Set(
+      originalAnimals.map((animal) => animal.ciudad)
+    );
+    setCities(["", ...Array.from(uniqueCities)]);
+
+    const uniqueSpecies = new Set(
+      originalAnimals.map((animal) => animal.especie)
+    );
+    setSpecies(["", ...Array.from(uniqueSpecies)]);
+  }, [originalAnimals]);
 
   const filtrarAnimales = (data) => {
-    let filteredData = data;
-    filteredData = filtrarPorNombre(filteredData);
-    filteredData = filtrarPorFiltros(filteredData);
-    return filteredData;
-  };
+    let filteredAnimals = data;
 
-  const filtrarPorNombre = (data) => {
-    return data.filter(animal => animal.nombre.toLowerCase().includes(searchTerm.toLowerCase()));
-  };
-
-  const filtrarPorFiltros = (data) => {
-    return data.filter(animal => {
-      if (filters.ciudad && animal.ciudad !== filters.ciudad) return false;
-      if (filters.especies.length > 0 && !filters.especies.includes(animal.especie)) return false;
-      if (filters.sexo.length > 0 && !filters.sexo.includes(animal.sexo)) return false;
-      if (filters.tamaño.length > 0 && !filters.tamaño.includes(animal.tamaño)) return false;
-      return true;
-    });
-  };
-
-  const handleFilterChange = (name, value) => {
-    if (name === 'ciudad') {
-      setFilters(prevFilters => ({
-        ...prevFilters,
-        [name]: value,
-      }));
-    } else {
-      setFilters(prevFilters => ({
-        ...prevFilters,
-        [name]: prevFilters[name].includes(value)
-          ? prevFilters[name].filter(item => item !== value)
-          : [...prevFilters[name], value],
-      }));
+    if (filters.ciudad) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.ciudad === filters.ciudad
+      );
     }
+    if (filters.especie) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.especie === filters.especie
+      );
+    }
+    if (filters.sexo) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.sexo === filters.sexo
+      );
+    }
+    if (filters.tamaño) {
+      filteredAnimals = filteredAnimals.filter(
+        (animal) => animal.tamaño === filters.tamaño
+      );
+    }
+
+    return filteredAnimals;
   };
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
   };
 
   if (error) {
@@ -91,24 +96,15 @@ const SeccionAnimales = () => {
   return (
     <>
       <div className="screen_container">
-
-      <div className="buscador">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            placeholder="Buscar por nombre..."
-          />
-        </div>
-
-      <Link to= {"/estadoAdopcion"}  className='estadoAdopcion'> Estado de adopción </Link>
-
         <div className="filter_container">
-          <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Ocultar Filtros" : "Filtros"}</button>
-          <div className={`filter_buttons slide-down ${showFilters ? 'active' : ''}`}>
+          <div className="filter_buttons">
             <div className="filter_row">
               <label>Ciudad:</label>
-              <select name="ciudad" value={filters.ciudad} onChange={(e) => handleFilterChange(e.target.name, e.target.value)}>
+              <select
+                name="ciudad"
+                value={filters.ciudad}
+                onChange={handleFilterChange}
+              >
                 <option value="">Todas</option>
                 {cities.map((city, index) => (
                   <option key={index} value={city}>
@@ -118,69 +114,66 @@ const SeccionAnimales = () => {
               </select>
             </div>
             <div className="filter_row">
-              <label>Especies:</label>
-              <div className="button_group">
+              <label>Especie:</label>
+              <select
+                name="especie"
+                value={filters.especie}
+                onChange={handleFilterChange}
+              >
+                <option value="">Todas</option>
                 {species.map((specie, index) => (
-                  <button
-                    key={index}
-                    className={`button_with_image ${filters.especies.includes(specie) ? "active_button" : ""}`}
-                    onClick={() => handleFilterChange("especies", specie)}
-                  >
-                    <img src={`iconos/animales/${specie}.png`} alt={specie} />
+                  <option key={index} value={specie}>
                     {specie}
-                  </button>
+                  </option>
                 ))}
-              </div>
+              </select>
             </div>
             <div className="filter_row">
               <label>Sexo:</label>
-              <div className="button_group">
-                {sexes.map((sex, index) => (
-                  <button
-                    key={index}
-                    className={`button_with_image ${filters.sexo.includes(sex) ? "active_button" : ""}`}
-                    onClick={() => handleFilterChange("sexo", sex)}
-                  >
-                    <img src={`iconos/genero/${sex}.png`} alt={sex} />
-                    {sex}
-                  </button>
-                ))}
-              </div>
+              <select
+                name="sexo"
+                value={filters.sexo}
+                onChange={handleFilterChange}
+              >
+                <option value="">Todos</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+              </select>
             </div>
             <div className="filter_row">
               <label>Tamaño:</label>
-              <div className="button_group">
-                {sizes.map((size, index) => (
-                  <button
-                    key={index}
-                    className={`button_with_image ${filters.tamaño.includes(size) ? "active_button" : ""}`}
-                    onClick={() => handleFilterChange("tamaño", size)}
-                  >
-                    <img src={`iconos/tamaño/${size}.png`} alt={size} />
-                    {size}
-                  </button>
-                ))}
-              </div>
+              <select
+                name="tamaño"
+                value={filters.tamaño}
+                onChange={handleFilterChange}
+              >
+                <option value="">Todos</option>
+                <option value="Pequeño">Pequeño</option>
+                <option value="Mediano">Mediano</option>
+                <option value="Grande">Grande</option>
+              </select>
             </div>
           </div>
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
-            <li key={animal._id} className="individual_animal_container">
-              <div className="animal_photo">
-                <img src={animal.imagen} alt={animal.nombre} />
-              </div>
-              <div className="animal_data">
-                <div className="animal_name">
-                  <h2>{animal.nombre}</h2>
+            <Link to={`/Adopcion/${animal._id}`}>
+              <li key={animal._id} className="individual_animal_container">
+                <div className="animal_photo">
+                  <img src={animal.imagen} alt={animal.nombre} />
                 </div>
-                <div className="animal_city">
-                  <p>
-                    <strong>Ciudad:</strong> {animal.ciudad}
-                  </p>
+                <div className="animal_data">
+                  <div className="animal_name">
+                    <h2>{animal.nombre}</h2>
+                  </div>
+                  <div className="animal_city">
+                    <p>
+                      <strong>Ciudad:</strong> {animal.ciudad}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>

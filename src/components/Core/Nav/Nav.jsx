@@ -1,18 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Nav.css"
 export const Nav = () => {
-
   return (
-    <div className='Nav'>
-       <Link to= {"/"}  className='botonNav'> Home </Link>
-       <Link to= {"/Carrousel"}  className='botonNav'> Carrousel </Link>
-       <Link to= {"/Mapa"}  className='botonNav'> Mapa </Link>
-       <Link to= {"/Adopcion"}  className='botonNav'> Adopcion </Link>
-       <Link to={"/Perfil"} className='botonNav'> Perfil </Link>
-       <Link to= {"/OtrosServicios"}  className='botonNav'> Otros Servicios</Link>
+    <div className="Nav">
+      <Link to={"/"} className="botonNav" src="/iconos">
+        <img className="img__nav" src="iconos\primarios\refugio-de-animales.png"></img>
+      </Link>
+      <Link to={"/Mapa"} className="botonNav">
+        <img className="img__nav" src="iconos\primarios\localizacion.png"></img>
+      </Link>
+      <Link to={"/Adopcion"} className="botonNav">
+        <img className="img__nav" src="iconos\primarios\amor.png"></img>
+      </Link>
+      <Link to={"/Perfil"} className="botonNav">
+        <img className="img__nav" src="iconos\primarios\usuario.png"></img>
+      </Link>
+      <Link to={"/OtrosServicios"} className="botonNav">
+        <img className="img__nav--circle" src="iconos\secundarios\tres-puntos.png"></img>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
 export default Nav;
