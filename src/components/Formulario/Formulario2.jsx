@@ -1,12 +1,18 @@
-import "./Formulario.css";
-
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./Formulario.css";
 import BarraProgreso from "./BarraProgreso";
 
 export const Formulario2 = () => {
-  //creamos el estado inicial para guardar los valores
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Recuperar el _id y el estado anterior del formulario desde la ubicación.
+  const { _id, ...previousState } = location.state || {};
+
+  // Extender el estado inicial con los datos recibidos del formulario anterior y definir nuevos campos para este formulario
   const initialState = {
+    ...previousState, // Esparcir el estado previo
     OtrosAnimales: "",
     CualesAnimales: "",
     SeLlevaBien: "",
@@ -18,26 +24,19 @@ export const Formulario2 = () => {
 
   const [state, setState] = useState(initialState);
 
-  const navegar = useNavigate();
-
   const handleInput = (ev) => {
-    //aquí cogemos el valor del id y el valor del input que estamos recibiendo
     const { id, value } = ev.target;
-
-    //cada vez que se ejecuta la función de un input a traves de los elementos que le hemos puesto los onchange, recogemos el valor que tenía al 'principio' y le sumamos el id que es como está vinculado el input que sea y su value que va a ser su valor
     setState({ ...state, [id]: value });
-    //console.log(state);
   };
 
   const submit = (ev) => {
-    // con esta linea nos cargamos el comportamientopor defecto del evento para poder guardar los valores posteriormente
     ev.preventDefault();
-    // console.log("funciona");
 
-    localStorage.setItem("user2", JSON.stringify(state))
-    navegar("/Formulario3");
-
-    console.log(state);
+    // Aquí puedes enviar los datos a tu backend si es necesario antes de navegar al siguiente formulario
+    console.log("Formulario2 estado:", state);
+    
+    // Navegar a Formulario3 pasando el estado actual junto con _id
+    navigate("/Formulario3", { state: { ...state, _id } });
 
     setState(initialState); // esta funcion limpia el formulario una vez submiteado
   };
