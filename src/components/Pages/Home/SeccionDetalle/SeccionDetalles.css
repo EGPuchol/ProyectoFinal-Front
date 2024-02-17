@@ -211,3 +211,165 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+@media (min-width: 768px){
+  .fotonombreciudad{
+    a{
+      display: flex;
+      justify-content: center;
+    }
+  }
+.animalfoto{
+  width: 60%;
+  height: auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  border:3px solid #8bc34a;
+}
+.nombreCiudad{
+  display: flex;
+  align-items: center;
+  width: 90%;
+ 
+  margin-left: 35px;
+  p{
+    font-size: 30px;
+  }
+}
+.menuDetalle{
+  width: 90%;
+  margin-left: 35px;
+}
+.detallesespecie{
+  margin-left: 40px;
+}
+.detalleespecie2{
+  margin-right: 40px;
+}
+.detallenacimiento2{
+  margin-right: 40px;
+}
+.detallesNacimiento{
+  margin-left: 40px;
+
+}
+.detallesexo{
+  margin-left: 40px;
+}
+.detallesexo2{
+  margin-right: 40px;
+}
+.detalletamano{
+  margin-left: 40px;
+}
+.detallepeso{
+  margin-left: 40px;
+}
+.detallepersonalidad{
+  margin-left: 20px;
+}
+.historia{
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 65px;
+}
+.detallesbuttonadoptar{
+  margin-bottom: 60px;
+}
+
+.detallesSalud{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.detallesadopcion{
+  width:80%;
+}
+.rectangulopreguntas{
+  margin-left: 100px;
+}
+}
+@media (min-width: 1440px){
+  .fotonombreciudad{
+    a{
+      display: flex;
+      justify-content: center;
+    }
+  }
+.animalfoto{
+  width: 50%;
+  height: auto;
+  margin-top: 80px;
+  border-radius: 20px;
+  border:3px solid #8bc34a;
+}
+.nombreCiudad{
+  display: flex;
+  align-items: center;
+  width: 80%;
+ 
+  margin-left: 150px;
+  p{
+    font-size: 40px;
+  }
+}
+.menuDetalle{
+  width: 80%;
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.detallesespecie{
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.detalleespecie2{
+  margin-right: 150px;
+  
+  
+}
+.detallenacimiento2{
+  margin-right: 150px;
+  
+}
+.detallesNacimiento{
+  margin-left: 150px;
+  margin-bottom: 20px;
+
+}
+.detallesexo{
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.detallesexo2{
+  margin-right: 150px;
+}
+.detalletamano{
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.detallepeso{
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+.detallepersonalidad{
+  margin-left: 150px;
+}
+.historia{
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 185px;
+}
+.detallesbuttonadoptar{
+  margin-bottom: 60px;
+}
+
+.detallesSalud{
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.detallesadopcion{
+  width:80%;
+}
+.rectangulopreguntas{
+  margin-left: 230px;
+}
+}
