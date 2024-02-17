@@ -104,7 +104,7 @@ function SeccionDetalle({ datos, salud, adopcion }) {
         <button className="detallesbuttonadoptar" onClick={openModal}>
           Adoptar
         </button>
-        <SeccionDetallepopup isOpen={isModalOpen} onClose={closeModal}>
+        <SeccionDetallepopup isOpen={isModalOpen} onClose={closeModal} _id={_id}>
           <h2 className="tituloadopcion">Solicitud de adopción</h2>
           <p className="parrafoadopcion">
             Adoptar es un acto de amor, pero sobre todo una responsabilidad de

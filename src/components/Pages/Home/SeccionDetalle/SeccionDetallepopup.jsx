@@ -1,7 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function SeccionDetallepopup({ isOpen, onClose, children }) {
+function SeccionDetallepopup({ isOpen, onClose, children, _id }) {
+  const navigate = useNavigate();
+
+  const handleAdoptarClick = () => {
+    console.log('ID al hacer clic en Adoptar:', _id); // Esto te ayudará a verificar si el _id está llegando correctamente
+    if (_id) {
+      navigate('/Formulario', { state: { _id: _id } }); // Asegúrate de que el objeto state esté correctamente formado
+    } else {
+      console.error('El _id no está definido');
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -20,12 +31,9 @@ function SeccionDetallepopup({ isOpen, onClose, children }) {
           ¿Quieres continuar con el proceso de adopción?
         </h4>
         <div className="cancelaradoptar">
-          <button className="detallesbuttonadoptar" onClick={onClose}>
-            Cancelar
-          </button>
-          <Link to={"/Formulario"}>
-            <button className="detallesbuttonadoptar">Adoptar</button>
-          </Link>
+          <button className="detallesbuttonadoptar" onClick={onClose}>Cancelar</button>
+          {/* Usar un botón en lugar de Link para aplicar el manejo del clic */}
+          <button className="detallesbuttonadoptar" onClick={handleAdoptarClick}>Adoptar</button>
         </div>
       </div>
     </div>
@@ -33,3 +41,4 @@ function SeccionDetallepopup({ isOpen, onClose, children }) {
 }
 
 export default SeccionDetallepopup;
+
