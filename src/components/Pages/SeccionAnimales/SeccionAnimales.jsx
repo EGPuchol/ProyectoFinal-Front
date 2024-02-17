@@ -80,6 +80,8 @@ const SeccionAnimales = () => {
     }
   };
 
+  // hola
+
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
