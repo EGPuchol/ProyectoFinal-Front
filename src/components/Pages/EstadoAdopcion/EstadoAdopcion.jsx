@@ -2,62 +2,46 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Nav from "../../Core/Nav/Nav";
-import FilterPopup from "./EstadoAdopcionPopUp"; // Importa el componente del pop-up de filtros
+import FilterPopup from "./EstadoAdopcionPopUp";
 import "./EstadoAdopcion.css";
 
-const EstadoAdopcion = () => {
+export const EstadoAdopcion = () => {
   const [animals, setAnimals] = useState([]);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [filteredAnimals, setFilteredAnimals] = useState([]);
+  const [showAdopted, setShowAdopted] = useState(true);
+  const [showNotAdopted, setShowNotAdopted] = useState(true);
 
   useEffect(() => {
-    let isMounted = true;
-    axios
-      .get("http://localhost:3300/animals")
+    axios.get("http://localhost:3300/animals")
       .then((response) => {
-        if (isMounted) {
           setAnimals(response.data);
-          setFilteredAnimals(response.data);
-        }
       })
       .catch((error) => {
-        console.error("Error al hacer la solicitud:", error);
         setError(error);
+        console.error("Error al cargar los datos:", error);
       });
-
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
-    filterAnimals(event.target.value);
   };
 
-  const handleApplyFilters = (showAdopted, showNotAdopted) => {
-    filterAnimals(searchTerm, showAdopted, showNotAdopted);
+  const handleApplyFilters = (showAdoptedParam, showNotAdoptedParam) => {
+    setShowAdopted(showAdoptedParam);
+    setShowNotAdopted(showNotAdoptedParam);
     setShowFilters(false);
   };
 
-  const filterAnimals = (term, showAdopted = true, showNotAdopted = true) => {
-    const filtered = animals.filter((animal) => {
-      const nameIncludesTerm = animal.nombre.toLowerCase().includes(term.toLowerCase());
-      if (showAdopted && showNotAdopted) {
-        return nameIncludesTerm;
-      } else if (showAdopted && !showNotAdopted) {
-        return nameIncludesTerm && animal.adoptado;
-      } else if (!showAdopted && showNotAdopted) {
-        return nameIncludesTerm && !animal.adoptado;
-      } else {
-        return false; // No mostrar ningún animal
-      }
-    });
+  /* esto es para el filtro */
 
-    setFilteredAnimals(filtered);
-  };
+  const filteredAnimals = animals.filter(animal => {
+    const nameMatch = animal.nombre.toLowerCase().includes(searchTerm.toLowerCase());
+    const adoptionStatusMatch = (animal.estadoAdopcion === "En proceso" && showAdopted) ||
+                                 (!animal.estadoAdopcion || animal.estadoAdopcion !== "En proceso" && showNotAdopted);
+    return nameMatch && adoptionStatusMatch;
+  });
 
   if (error) {
     return <div>Error al cargar los datos: {error.message}</div>;
@@ -67,9 +51,7 @@ const EstadoAdopcion = () => {
     <>
       <div className="screen_container">
         <div className="header_nav">
-          <Link to="/Adopcion" className="volver_btn">
-            Volver
-          </Link>
+          <Link to="/Adopcion" className="volver_btn">Volver</Link>
           <div className="buscador2">
             <input
               type="text"
@@ -79,21 +61,17 @@ const EstadoAdopcion = () => {
             />
           </div>
           <div className="filter_btn" onClick={() => setShowFilters(true)}>
-            <img src="iconos\secundarios\controles-deslizantes.png" alt="Botón Filtro" className="btn_filtro"/>
+            <img src={`${process.env.PUBLIC_URL}/iconos/secundarios/controles-deslizantes.png`} alt="Filtros" className="btn_filtro" />
           </div>
-          <FilterPopup
-            isOpen={showFilters}
-            onClose={() => setShowFilters(false)}
-            handleApplyFilters={handleApplyFilters}
-          />
+          <FilterPopup isOpen={showFilters} onClose={() => setShowFilters(false)} handleApplyFilters={handleApplyFilters} />
         </div>
         <ul className="main_animal_container_estadoAdopcion">
-          {filteredAnimals.map((animal) => (
+          {filteredAnimals.map(animal => (
             <li key={animal._id} className="individual_animal_container_estadoAdopcion">
               <div className="procesoAdopcion1">
                 <h2 className="animal_name_estadoAdopcion">Adopción de {animal.nombre}</h2>
-                <p style={{ color: animal.adoptado ? '#8bc34a' : 'red' }}>
-                  {animal.adoptado ? "Adoptado" : "No Adoptado"}
+                <p style={{ color: animal.estadoAdopcion === "En proceso" ? "orange" : "red" } }>
+                {animal.estadoAdopcion === "En proceso" ? "En proceso" : "No Adoptado"}
                 </p>
               </div>
               <div className="procesoAdopcion2">
@@ -110,9 +88,7 @@ const EstadoAdopcion = () => {
           ))}
         </ul>
       </div>
-      <div className="nav_container_estadoAdopcion">
-        <Nav className="nav"></Nav>
-      </div>
+      <Nav></Nav>
     </>
   );
 };

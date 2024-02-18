@@ -20,7 +20,7 @@ function EstadoAdopcionPopUp({ isOpen, onClose, handleApplyFilters }) {
           className={`filter_button ${showAdopted ? 'selected' : ''}`}
           onClick={() => setShowAdopted(!showAdopted)}
         >
-          Adoptados
+          En proceso
         </button>
         <button
           className={`filter_button ${showNotAdopted ? 'selected' : ''}`}

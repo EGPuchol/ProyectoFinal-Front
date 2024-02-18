@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios"; // Asegúrate de haber instalado axios con `npm install axios` o `yarn add axios`
+import axios from "axios"; /* Instalar axios */
 import BarraProgreso from "./BarraProgreso";
 import "./Formulario.css";
 
@@ -19,7 +19,7 @@ export const Formulario3 = () => {
   const [state, setState] = useState(initialState);
   const navigate = useNavigate();
   const location = useLocation();
-  const _id = location.state?._id; // Asegúrate de que el ID se pasa correctamente
+  const _id = location.state?._id; /* Con esto comprobamos el id */
   const [showPopup, setShowPopup] = useState(false);
 
   const handleInput = (ev) => {
@@ -31,13 +31,12 @@ export const Formulario3 = () => {
     ev.preventDefault();
 
     try {
-      // Agregar la lógica para enviar la información al backend aquí
-      // Por ejemplo, usando axios para enviar una solicitud POST
+      /* Usamos axios para enviar una peticion al post */
       const response = await axios.patch(
         `http://localhost:3300/animals/${_id}`,
         {
           ...state,
-          estadoAdopcion: "En proceso", // Asegúrate de que tu backend maneje este campo correctamente
+          estadoAdopcion: "En proceso", 
         }
       );
 
