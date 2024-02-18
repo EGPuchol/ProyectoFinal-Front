@@ -43,6 +43,10 @@ export const Formulario3 = () => {
       if (response.status === 200) {
         console.log("Formulario enviado y estado de adopción actualizado");
         setShowPopup(true);
+        /* Programa la redirección después de un breve retardo */
+        setTimeout(() => {
+          navigate('/estadoAdopcion');
+        }, 5000); /* Ajusta el tiempo de espera */
       } else {
         console.error("Hubo un error al enviar el formulario");
       }
