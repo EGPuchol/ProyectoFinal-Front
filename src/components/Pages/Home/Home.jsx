@@ -43,15 +43,15 @@ export const Home = () => {
   const [noticias, setNoticias] = useState([]);
   const [error, setError] = useState(null);
 
-  const {jwt, setJwt} = useContext(JwtContext);
-    let navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem('user'));
-    const signOut = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setJwt(null);
-        navigate("/");
-    }
+  // const {jwt, setJwt} = useContext(JwtContext);
+  //   let navigate = useNavigate();
+  //   const user = JSON.parse(localStorage.getItem('user'));
+  //   const signOut = () => {
+  //       localStorage.removeItem('token');
+  //       localStorage.removeItem('user');
+  //       setJwt(null);
+  //       navigate("/");
+  //   }
 
   useEffect(() => {
     axios
@@ -73,16 +73,8 @@ export const Home = () => {
 
   
 
-  return jwt && user ? ( 
+  return  ( 
     <>
-    <p>
-            Welcome! {user.name}
-            <button
-                onClick={signOut}
-            >
-                Sign out
-            </button>
-        </p>
       
       <div>
         <OwlCarousel className="owl-theme" {...options}>
@@ -143,7 +135,5 @@ export const Home = () => {
         <Nav></Nav>
       </div>
     </>
-  ): (
-    <p>You are not logged in.</p>
-);
+  ) 
 };
