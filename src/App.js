@@ -22,6 +22,7 @@ import { Registrarse } from './components/Pages/Registrarse/Registrarse';
 
 import { useState } from 'react';
 import { JwtContext } from './shared/contextos/JwtContext';
+import { AnimalsProvider } from './contexts/AnimalsContext';
 
 
 
@@ -32,6 +33,7 @@ function App() {
   return (
     <>
     <JwtContext.Provider value={{ jwt, setJwt }}>
+      <AnimalsProvider>
       <BrowserRouter>
       <Routes>
         <Route path= "/" element= {<Carrousel/>}/>
@@ -50,6 +52,7 @@ function App() {
         <Route path = "/Formulario3" element= {<Formulario3/>}/>
         </Routes> 
       </BrowserRouter>
+      </AnimalsProvider>
       </JwtContext.Provider>
     </>
   );

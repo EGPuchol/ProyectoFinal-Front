@@ -7,12 +7,12 @@ export const Formulario2 = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Recuperar el _id y el estado anterior del formulario desde la ubicación.
+  /* Esto es para recuperar el id y pasarlo con el fomrulario */
   const { _id, ...previousState } = location.state || {};
 
-  // Extender el estado inicial con los datos recibidos del formulario anterior y definir nuevos campos para este formulario
+ /* Extiende los datos a traves del formulario y coge los nuevos campos */
   const initialState = {
-    ...previousState, // Esparcir el estado previo
+    ...previousState, 
     OtrosAnimales: "",
     CualesAnimales: "",
     SeLlevaBien: "",
@@ -32,13 +32,13 @@ export const Formulario2 = () => {
   const submit = (ev) => {
     ev.preventDefault();
 
-    // Aquí puedes enviar los datos a tu backend si es necesario antes de navegar al siguiente formulario
+   
     console.log("Formulario2 estado:", state);
     
-    // Navegar a Formulario3 pasando el estado actual junto con _id
+    /* para navegar a Formulario3 pasando el estado actual junto con _id */
     navigate("/Formulario3", { state: { ...state, _id } });
 
-    setState(initialState); // esta funcion limpia el formulario una vez submiteado
+    setState(initialState); /*  esta funcion limpia el formulario una vez submiteado */
   };
 
   return (
