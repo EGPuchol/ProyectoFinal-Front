@@ -140,8 +140,10 @@ export const Home = () => {
             </li>
           ))}
         </ul>
-        <Nav></Nav>
       </div>
+        <div>
+        <Nav></Nav>
+        </div>
     </>
   )/*: (
     <p>You are not logged in.</p>

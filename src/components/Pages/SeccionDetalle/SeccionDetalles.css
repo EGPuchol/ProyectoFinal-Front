@@ -1,5 +1,11 @@
-.Nav{
+/* .Nav{
   margin-top: 30px;
+} */
+
+.main_screen_details_container{
+  /* margin-bottom: 30px; */
+  height: 100%;
+  padding-bottom: 1px;
 }
 
 .btn_volver_detalle_container {
@@ -23,6 +29,29 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.custom-btn.btn-4 {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+  position: relative; /* Para posicionar el pseudo-elemento */
+}
+
+.custom-btn.btn-4::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: #8bc34a; /* Color de la línea */
+  position: absolute;
+  bottom: -2px; /* Posiciona la línea debajo del texto */
+  left: 0;
+  transition: width 0.3s ease; /* Transición para la animación */
+}
+
+.custom-btn.btn-4.active::after {
+  width: 100%; /* Ancho completo para la línea */
 }
 
 .animalfoto {
@@ -168,7 +197,7 @@
 .detallesbuttonadoptar2 {
   display: flex;
   justify-content: center;
-  margin: 50px;
+  margin-bottom: 50px;
 }
 
 .detallesbuttonadoptar {
@@ -407,4 +436,26 @@
   .rectangulopreguntas {
     margin-left: 230px;
   }
+
+  .fotonombreciudad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    .btn_volver_detalle_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .volver_btn_detalle{
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.0);
+        margin-top: 60px;
+        margin-left: 30px;
+      }
+    }
+    .nombreCiudad {
+      border-radius: 8px;
+    }
+  }
+
 }

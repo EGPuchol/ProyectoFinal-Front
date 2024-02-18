@@ -62,10 +62,12 @@ function SeccionMapa () {
     return (
         <>
         <div>
+        <div className="tittle_map_section_container">
             <h1 className="map__title">Nuestras Ubicaciones</h1>
         </div>
-        <div >
+        <div  className="map_section_container">
             <div className="map__style" style={mapStyleS} id="map"/>  
+        </div>
         </div>
         <Nav></Nav>
         </>
