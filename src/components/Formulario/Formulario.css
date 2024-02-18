@@ -7,11 +7,11 @@
 
 .formulario h5 {
   text-align: center;
-  color: #8bc34a; /* Verde específico para títulos */
+  color: #76a03f; /* Verde específico para títulos */
 }
 
 .formulario h3 {
-  color: #00574B; /* Azul verdoso oscuro para subsecciones */
+  color: #8bc34a; /* Azul verdoso oscuro para subsecciones */
   margin-bottom: 15px;
 }
 
@@ -103,7 +103,7 @@
 
   .popup-content h2 {
     color: #8bc34a; 
-    
+
     margin-top: 0;
     margin-bottom: 20px; /* Ajustar*/
   }
