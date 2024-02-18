@@ -1,20 +1,27 @@
 import React from 'react'
-import "./SeccionRegistro.css"
+import "./SeccionLogearse.css"
 import { Link} from 'react-router-dom'
 import { useForm } from "react-hook-form"
+import { JwtContext } from '../../../shared/contextos/JwtContext'
+import { API } from "../../../shared/servicios/api";
+import { useContext } from 'react';
 
-export const SeccionRegistro = () => {
+export const SeccionLogearse = () => {
 
   const {
     register,
     handleSubmit
 } = useForm()
 
-const doSubmit = (data) =>{
-    console.log(data)
-}
+const { setJwt } = useContext(JwtContext);
 
-//hola
+const onSubmit = formData => {
+  API.post('login', formData).then(res => {
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('user', JSON.stringify(res.data.user))
+      setJwt(true);
+  })
+}
 
   return (
     <div className='todoRegistro'>
@@ -22,28 +29,22 @@ const doSubmit = (data) =>{
 
       <img className='huella' src="images/images_bienvenida/huella_logo.png" alt="fotodePetMatch" />
 
-      <h2 className='textoRegistro'>Bienvenido a PetMatch. Para continuar, inicia sesion o crea una cuenta</h2>
+      <h2 className='textoRegistro'>Bienvenido a PetMatch. Para continuar, inicia sesion o registrate</h2>
 
-      <form onSubmit={handleSubmit(doSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
             
             <label className='logearse'>
-            <input type="text" placeholder='Pepito' {...register("nombre", {required:true})}/>
-
-            <input type="text" placeholder='Perez Vivas' {...register("apellidos", {required:true})}/>
-
+  
             <input type="text" placeholder='alguien@gmail.com' {...register("correo", {required:true})}/>
 
             <input type="string" placeholder='abcd1234'{...register("contraseña", {required:true, minLength: {value: 8, message: "la contraseña tiene que ser de minimo 8 caracteres e incluir numeros y letras"}})} />
             </label>
 
-            <input type="text" {...register("imagen", {required:true})}/>
-
-            <button>Enviar</button>
-
         </form>
 
         <div className='botonesRegistro'>
-        <Link to={"/"} className='iniciar'><button>Iniciar sesion</button></Link>
+        <Link to={"/Home"} className='iniciar'><input type='submit' value='login' /></Link>
+        <Link to={"/Registrarse"} className='registrarse'><button>Registrarse</button></Link>
         </div>
       </div>
     </div>
