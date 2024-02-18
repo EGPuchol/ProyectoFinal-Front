@@ -127,7 +127,7 @@ padding-top: 10px;
     
 }
 .Nav {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     position: fixed;
     bottom: 0; /* Fija la posición en la parte inferior */
     left: 0;
@@ -185,6 +185,7 @@ padding-top: 10px;
         flex-direction: column;
         width: 80%;
         margin-left: 10%;
+        margin-bottom: 30px;
     }
 
 }

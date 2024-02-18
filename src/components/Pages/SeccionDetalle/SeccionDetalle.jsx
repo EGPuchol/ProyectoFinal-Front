@@ -41,7 +41,8 @@ function SeccionDetalle({ datos, salud, adopcion }) {
   }
 
   return (
-    <div>
+    <>
+    <div className="main_screen_details_container">
       <div className="fotonombreciudad">
       <div className="btn_volver_detalle_container">
         <Link to="/Adopcion" className="volver_btn_detalle">
@@ -59,37 +60,37 @@ function SeccionDetalle({ datos, salud, adopcion }) {
         </div>
       </div>
       <div className="menuDetalle">
-        <h3
-          className="custom-btn btn-4"
-          onClick={() => {
-            setShowDatos(true);
-            setShowSalud(false);
-            setShowAdopcion(false);
-          }}
-        >
-          Datos
-        </h3>
-        <h3
-          className="custom-btn btn-4"
-          onClick={() => {
-            setShowDatos(false);
-            setShowSalud(true);
-            setShowAdopcion(false);
-          }}
-        >
-          Salud
-        </h3>
-        <h3
-          className="custom-btn btn-4"
-          onClick={() => {
-            setShowDatos(false);
-            setShowSalud(false);
-            setShowAdopcion(true);
-          }}
-        >
-          Adopción
-        </h3>
-      </div>
+      <h3
+        className={`custom-btn btn-4 ${showDatos ? "active" : ""}`}
+        onClick={() => {
+          setShowDatos(true);
+          setShowSalud(false);
+          setShowAdopcion(false);
+        }}
+      >
+        Datos
+      </h3>
+      <h3
+        className={`custom-btn btn-4 ${showSalud ? "active" : ""}`}
+        onClick={() => {
+          setShowDatos(false);
+          setShowSalud(true);
+          setShowAdopcion(false);
+        }}
+      >
+        Salud
+      </h3>
+      <h3
+        className={`custom-btn btn-4 ${showAdopcion ? "active" : ""}`}
+        onClick={() => {
+          setShowDatos(false);
+          setShowSalud(false);
+          setShowAdopcion(true);
+        }}
+      >
+        Adopción
+      </h3>
+    </div>
       <div>
         {showDatos ? (
           <SeccionDetalleDatos datos={datos} />
@@ -115,8 +116,9 @@ function SeccionDetalle({ datos, salud, adopcion }) {
           </p>
         </SeccionDetallepopup>
       </div>
-      <Nav></Nav>
     </div>
+      <Nav></Nav>
+    </>
   );
 }
 
