@@ -108,11 +108,11 @@ function SeccionDetalle({ datos, salud, adopcion }) {
           <h2 className="tituloadopcion">Solicitud de adopción</h2>
           <p className="parrafoadopcion">
             Adoptar es un acto de amor, pero sobre todo una responsabilidad de
-            por vida
+            por vida.
           </p>
           <p className="parrafoadopcion">
             Por éste motivo es importante que veas el siguiente vídeo donde te
-            explicamos como va a ser todo el proceso de adopción
+            explicamos como va a ser todo el proceso de adopción.
           </p>
         </SeccionDetallepopup>
       </div>
