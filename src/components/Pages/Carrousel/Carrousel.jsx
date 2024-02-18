@@ -53,10 +53,13 @@ export const Carrousel = () => {
       }, []);
 
     return (
+       
         
         <div>
             {loading ? (
             <div>
+                 <img className='petmatch__logo' src="images\images_bienvenida\huella_logo.png" alt="" />
+                <h2 className='petmatch__title'>PETMATCH</h2>
             <div class="loader">
          <div class="dog">
             <div class="dog-body">
@@ -113,7 +116,7 @@ export const Carrousel = () => {
     <div className='item3'>
         <img className='imagenCarrusel' src="images/images_bienvenida/cajita_animal.png" alt="img3" />
         <h4 className='texto3'>Si eres una asociacion sube a tus peludos para darles más difusion</h4>
-        <Link to= {"/Acceder"} ><button>Acceder</button></Link>
+        <Link to= {"/Acceder"}><button className='button__acceder'>Acceder</button></Link>
     </div>
         </OwlCarousel>
         </div>

@@ -13,7 +13,7 @@ import { JwtContext } from '../../../shared/contextos/JwtContext';
 const options = {
   items: 1,
   loop: true,
-  autoplay: true,
+  autoplay: false,
   autoplayTimeout: 4000,
   animateOut: "fadeOut",
   nav: false,
@@ -43,15 +43,15 @@ export const Home = () => {
   const [noticias, setNoticias] = useState([]);
   const [error, setError] = useState(null);
 
-  const {jwt, setJwt} = useContext(JwtContext);
-    let navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem('user'));
-    const signOut = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setJwt(null);
-        navigate("/");
-    }
+  // const {jwt, setJwt} = useContext(JwtContext);
+  //   let navigate = useNavigate();
+  //   const user = JSON.parse(localStorage.getItem('user'));
+  //   const signOut = () => {
+  //       localStorage.removeItem('token');
+  //       localStorage.removeItem('user');
+  //       setJwt(null);
+  //       navigate("/");
+  //   }
 
   useEffect(() => {
     axios
@@ -73,9 +73,9 @@ export const Home = () => {
 
   
 
-  return jwt && user ? ( 
+  return /*jwt && user ?*/ ( 
     <>
-    <p>
+    {/* <p>
             Welcome! {user.name}
             <button
                 onClick={signOut}
@@ -83,7 +83,7 @@ export const Home = () => {
                 Sign out
             </button>
         </p>
-      
+       */}
       <div>
         <OwlCarousel className="owl-theme" {...options}>
           <div className="card__item">
@@ -143,7 +143,7 @@ export const Home = () => {
         <Nav></Nav>
       </div>
     </>
-  ): (
+  )/*: (
     <p>You are not logged in.</p>
-);
+);*/
 };
