@@ -1,3 +1,23 @@
+.Nav{
+  margin-top: 30px;
+}
+
+.btn_volver_detalle_container {
+  position: relative;
+}
+.volver_btn_detalle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  color: #8bc34a;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 50px;
+  width: 60px;
+  text-align: center;
+}
+
 .menuDetalle {
   display: flex;
   flex-direction: row;
@@ -15,8 +35,8 @@
 .nombreCiudad {
   background-color: #c4ef92;
   border: 3px solid #8bc34a;
-  border-radius: 8px;
-  width: 99%;
+  border-radius: 0 0 8px 8px;
+  width: 100vw;
   height: 70px;
   display: flex;
   flex-direction: row;
@@ -212,164 +232,179 @@
   justify-content: space-around;
 }
 
-@media (min-width: 768px){
-  .fotonombreciudad{
-    a{
+@media (min-width: 767px) {
+.Nav{
+  margin-top: 0;
+}
+
+  .fotonombreciudad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    .btn_volver_detalle_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .volver_btn_detalle{
+        font-size: 20px;
+        background-color: rgba(0, 0, 0, 0.0);
+      }
+    }
+    .nombreCiudad {
+      border-radius: 8px;
+    }
+  }
+  .animalfoto {
+    width: 60%;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 3px solid #8bc34a;
+  }
+  .nombreCiudad {
+    display: flex;
+    align-items: center;
+    width: 90%;
+
+    margin-left: 35px;
+    p {
+      font-size: 30px;
+    }
+  }
+  .menuDetalle {
+    width: 90%;
+    margin-left: 35px;
+  }
+  .detallesespecie {
+    margin-left: 40px;
+  }
+  .detalleespecie2 {
+    margin-right: 40px;
+  }
+  .detallenacimiento2 {
+    margin-right: 40px;
+  }
+  .detallesNacimiento {
+    margin-left: 40px;
+  }
+  .detallesexo {
+    margin-left: 40px;
+  }
+  .detallesexo2 {
+    margin-right: 40px;
+  }
+  .detalletamano {
+    margin-left: 40px;
+  }
+  .detallepeso {
+    margin-left: 40px;
+  }
+
+  .personalidad {
+    margin-bottom: -20px;
+  }
+  .detallepersonalidad {
+    margin-left: 20px;
+  }
+  .historia {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 65px;
+  }
+  .detallesbuttonadoptar {
+    margin-bottom: 30px;
+  }
+
+  .detallesSalud {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .detallesadopcion {
+    width: 80%;
+  }
+  .rectangulopreguntas {
+    margin-left: 100px;
+  }
+}
+@media (min-width: 1440px) {
+  .fotonombreciudad {
+    a {
       display: flex;
       justify-content: center;
     }
   }
-.animalfoto{
-  width: 60%;
-  height: auto;
-  margin-top: 30px;
-  border-radius: 20px;
-  border:3px solid #8bc34a;
-}
-.nombreCiudad{
-  display: flex;
-  align-items: center;
-  width: 90%;
- 
-  margin-left: 35px;
-  p{
-    font-size: 30px;
+  .animalfoto {
+    width: 50%;
+    height: auto;
+    margin-top: 80px;
+    border-radius: 20px;
+    border: 3px solid #8bc34a;
   }
-}
-.menuDetalle{
-  width: 90%;
-  margin-left: 35px;
-}
-.detallesespecie{
-  margin-left: 40px;
-}
-.detalleespecie2{
-  margin-right: 40px;
-}
-.detallenacimiento2{
-  margin-right: 40px;
-}
-.detallesNacimiento{
-  margin-left: 40px;
+  .nombreCiudad {
+    display: flex;
+    align-items: center;
+    width: 80%;
 
-}
-.detallesexo{
-  margin-left: 40px;
-}
-.detallesexo2{
-  margin-right: 40px;
-}
-.detalletamano{
-  margin-left: 40px;
-}
-.detallepeso{
-  margin-left: 40px;
-}
-.detallepersonalidad{
-  margin-left: 20px;
-}
-.historia{
-  width: 80%;
-  margin-top: 20px;
-  margin-left: 65px;
-}
-.detallesbuttonadoptar{
-  margin-bottom: 60px;
-}
-
-.detallesSalud{
-  padding-left: 40px;
-  padding-right: 40px;
-}
-.detallesadopcion{
-  width:80%;
-}
-.rectangulopreguntas{
-  margin-left: 100px;
-}
-}
-@media (min-width: 1440px){
-  .fotonombreciudad{
-    a{
-      display: flex;
-      justify-content: center;
+    margin-left: 150px;
+    p {
+      font-size: 40px;
     }
   }
-.animalfoto{
-  width: 50%;
-  height: auto;
-  margin-top: 80px;
-  border-radius: 20px;
-  border:3px solid #8bc34a;
-}
-.nombreCiudad{
-  display: flex;
-  align-items: center;
-  width: 80%;
- 
-  margin-left: 150px;
-  p{
-    font-size: 40px;
+  .menuDetalle {
+    width: 80%;
+    margin-left: 150px;
+    margin-bottom: 20px;
   }
-}
-.menuDetalle{
-  width: 80%;
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-.detallesespecie{
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-.detalleespecie2{
-  margin-right: 150px;
-  
-  
-}
-.detallenacimiento2{
-  margin-right: 150px;
-  
-}
-.detallesNacimiento{
-  margin-left: 150px;
-  margin-bottom: 20px;
+  .detallesespecie {
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  .detalleespecie2 {
+    margin-right: 150px;
+  }
+  .detallenacimiento2 {
+    margin-right: 150px;
+  }
+  .detallesNacimiento {
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  .detallesexo {
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  .detallesexo2 {
+    margin-right: 150px;
+  }
+  .detalletamano {
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  .detallepeso {
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  .detallepersonalidad {
+    margin-left: 150px;
+  }
+  .historia {
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 185px;
+  }
+  .detallesbuttonadoptar {
+    margin-bottom: 60px;
+  }
 
-}
-.detallesexo{
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-.detallesexo2{
-  margin-right: 150px;
-}
-.detalletamano{
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-.detallepeso{
-  margin-left: 150px;
-  margin-bottom: 20px;
-}
-.detallepersonalidad{
-  margin-left: 150px;
-}
-.historia{
-  width: 70%;
-  margin-top: 20px;
-  margin-left: 185px;
-}
-.detallesbuttonadoptar{
-  margin-bottom: 60px;
-}
-
-.detallesSalud{
-  padding-left: 150px;
-  padding-right: 150px;
-}
-.detallesadopcion{
-  width:80%;
-}
-.rectangulopreguntas{
-  margin-left: 230px;
-}
+  .detallesSalud {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .detallesadopcion {
+    width: 80%;
+  }
+  .rectangulopreguntas {
+    margin-left: 230px;
+  }
 }

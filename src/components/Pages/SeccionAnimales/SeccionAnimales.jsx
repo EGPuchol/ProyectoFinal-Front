@@ -106,9 +106,11 @@ const SeccionAnimales = () => {
       <Link to= {"/estadoAdopcion"}  className='estadoAdopcion'> Estado de adopción </Link>
 
         <div className="filter_container">
-          <button onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Ocultar Filtros" : "Filtros"}</button>
+          <div className="btn_filtros_adopcion_container">
+          <button className="btn_filtros_adopcion" onClick={() => setShowFilters(!showFilters)}>{showFilters ? "Ocultar Filtros" : "Filtros"}</button>
+          </div>
           <div className={`filter_buttons slide-down ${showFilters ? 'active' : ''}`}>
-            <div className="filter_row">
+            <div className="filter_btn_ciudad">
               <label>Ciudad:</label>
               <select name="ciudad" value={filters.ciudad} onChange={(e) => handleFilterChange(e.target.name, e.target.value)}>
                 <option value="">Todas</option>
@@ -119,7 +121,7 @@ const SeccionAnimales = () => {
                 ))}
               </select>
             </div>
-            <div className="filter_row">
+            <div className="filter_btn_animales">
               <label>Especies:</label>
               <div className="button_group">
                 {species.map((specie, index) => (
@@ -129,12 +131,12 @@ const SeccionAnimales = () => {
                     onClick={() => handleFilterChange("especies", specie)}
                   >
                     <img src={`iconos/animales/${specie}.png`} alt={specie} />
-                    {specie}
+                    <p>{specie}</p>
                   </button>
                 ))}
               </div>
             </div>
-            <div className="filter_row">
+            <div className="filter_btn_sex">
               <label>Sexo:</label>
               <div className="button_group">
                 {sexes.map((sex, index) => (
@@ -144,12 +146,12 @@ const SeccionAnimales = () => {
                     onClick={() => handleFilterChange("sexo", sex)}
                   >
                     <img src={`iconos/genero/${sex}.png`} alt={sex} />
-                    {sex}
+                    <p>{sex}</p>
                   </button>
                 ))}
               </div>
             </div>
-            <div className="filter_row">
+            <div className="filter_btn_size">
               <label>Tamaño:</label>
               <div className="button_group">
                 {sizes.map((size, index) => (
@@ -158,8 +160,8 @@ const SeccionAnimales = () => {
                     className={`button_with_image ${filters.tamaño.includes(size) ? "active_button" : ""}`}
                     onClick={() => handleFilterChange("tamaño", size)}
                   >
-                    <img src={`iconos/tamaño/${size}.png`} alt={size} />
-                    {size}
+                    <img src={`iconos/tamaño/${size}.png`} alt={size} className={size}/>
+                    <p>{size}</p>
                   </button>
                 ))}
               </div>
@@ -168,7 +170,7 @@ const SeccionAnimales = () => {
         </div>
         <ul className="main_animal_container">
           {animals.map((animal) => (
-            <Link to= {`/Adopcion/${animal._id}`}>
+            <Link to= {`/Adopcion/${animal._id}`} className="linkAnimalAdopcion">
             <li key={animal._id} className="individual_animal_container">
               <div className="animal_photo">
                 <img src={animal.imagen} alt={animal.nombre} />
