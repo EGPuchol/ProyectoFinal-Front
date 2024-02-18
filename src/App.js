@@ -14,13 +14,14 @@ import { Formulario2 } from './components/Formulario/Formulario2';
 import { Formulario3 } from './components/Formulario/Formulario3';
 import { Acceder } from './components/Pages/Acceder/Acceder';
 
-import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
+//import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
 import SeccionDetalle from './components/Pages/SeccionDetalle/SeccionDetalle';
 
 import { SeccionLogearse } from './components/Pages/SeccionLogearse/SeccionLogearse';
 import { Registrarse } from './components/Pages/Registrarse/Registrarse';
-import { JwtContext } from '../../../shared/contextos/JwtContext'
+
 import { useState } from 'react';
+import { JwtContext } from './shared/contextos/JwtContext';
 
 
 

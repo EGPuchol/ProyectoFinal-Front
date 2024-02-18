@@ -43,13 +43,12 @@ function SeccionDetalle({ datos, salud, adopcion }) {
   return (
     <div>
       <div className="fotonombreciudad">
-        <Link to={`/Adopcion`}>
-          <img
-            className="animalfoto"
-            src={animals.imagen}
-            alt={animals.nombre}
-          />
+      <div className="btn_volver_detalle_container">
+        <Link to="/Adopcion" className="volver_btn_detalle">
+          Volver
         </Link>
+          <img className="animalfoto" src={animals.imagen} alt={animals.nombre} />
+      </div>
         <div className="nombreCiudad">
           <p>
             <strong>{animals.nombre}</strong>
