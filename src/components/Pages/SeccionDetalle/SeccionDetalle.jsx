@@ -9,7 +9,7 @@ import "./SeccionDetalleSalud.css";
 import "./SeccionDetallesAdopcion.css";
 import SeccionDetallepopup from "./SeccionDetallepopup";
 import Nav from "../../Core/Nav/Nav";
-
+//hola
 function SeccionDetalle({ datos, salud, adopcion }) {
   const [animals, setDetalleAnimals] = useState({});
   const [showDatos, setShowDatos] = useState(true);
