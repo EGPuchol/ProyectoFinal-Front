@@ -157,6 +157,12 @@ gap: 10%;
   /* RESPONSIVE */
 
   @media (min-width: 768px){
+
+    .screen_container{
+      padding-left:15px;
+      padding-right: 15px;
+    }
+
     .individual_animal_container_estadoAdopcion {
       display: flex;
       flex-direction: column;
