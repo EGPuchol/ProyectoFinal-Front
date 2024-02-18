@@ -8,12 +8,13 @@ import { SeccionPerfil } from './components/Pages/SeccionPerfil/SeccionPerfil';
 import { SeccionOtrosServicios } from './components/Pages/SeccionOtrosServicios/SeccionOtrosServicios';
 import { Carrousel } from './components/Pages/Carrousel/Carrousel';
 import EstadoAdopcion from './components/Pages/EstadoAdopcion/EstadoAdopcion';
-import SeccionDetalle from './components/Pages/Home/SeccionDetalle/SeccionDetalle';
+
 import { Formulario } from './components/Formulario/Formulario';
 import { Formulario2 } from './components/Formulario/Formulario2';
 import { Formulario3 } from './components/Formulario/Formulario3';
 import { Acceder } from './components/Pages/Acceder/Acceder';
 import { SeccionRegistro } from './components/Pages/SeccionRegistro/SeccionRegistro';
+import SeccionDetalle from './components/Pages/SeccionDetalle/SeccionDetalle';
 
 
 

@@ -8,7 +8,7 @@ import "./SeccionDetalles.css";
 import "./SeccionDetalleSalud.css";
 import "./SeccionDetallesAdopcion.css";
 import SeccionDetallepopup from "./SeccionDetallepopup";
-import Nav from "../../../Core/Nav/Nav";
+import Nav from "../../Core/Nav/Nav";
 
 function SeccionDetalle({ datos, salud, adopcion }) {
   const [animals, setDetalleAnimals] = useState({});
