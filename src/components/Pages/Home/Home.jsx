@@ -6,11 +6,14 @@ import Nav from "../../Core/Nav/Nav";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { JwtContext } from '../../../shared/contextos/JwtContext';
 
 const options = {
   items: 1,
   loop: true,
-  autoplay: true,
+  autoplay: false,
   autoplayTimeout: 4000,
   animateOut: "fadeOut",
   nav: false,
@@ -40,6 +43,16 @@ export const Home = () => {
   const [noticias, setNoticias] = useState([]);
   const [error, setError] = useState(null);
 
+  // const {jwt, setJwt} = useContext(JwtContext);
+  //   let navigate = useNavigate();
+  //   const user = JSON.parse(localStorage.getItem('user'));
+  //   const signOut = () => {
+  //       localStorage.removeItem('token');
+  //       localStorage.removeItem('user');
+  //       setJwt(null);
+  //       navigate("/");
+  //   }
+
   useEffect(() => {
     axios
       .get("http://localhost:3300/noticias")
@@ -57,8 +70,20 @@ export const Home = () => {
   if (error) {
     return <div>Error al cargar los datos: {error.message}</div>;
   }
-  return (
+
+  
+
+  return /*jwt && user ?*/ ( 
     <>
+    {/* <p>
+            Welcome! {user.name}
+            <button
+                onClick={signOut}
+            >
+                Sign out
+            </button>
+        </p>
+       */}
       <div>
         <OwlCarousel className="owl-theme" {...options}>
           <div className="card__item">
@@ -118,5 +143,7 @@ export const Home = () => {
         <Nav></Nav>
       </div>
     </>
-  );
+  )/*: (
+    <p>You are not logged in.</p>
+);*/
 };
