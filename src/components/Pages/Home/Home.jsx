@@ -43,15 +43,15 @@ export const Home = () => {
   const [noticias, setNoticias] = useState([]);
   const [error, setError] = useState(null);
 
-  // const {jwt, setJwt} = useContext(JwtContext);
-  //   let navigate = useNavigate();
-  //   const user = JSON.parse(localStorage.getItem('user'));
-  //   const signOut = () => {
-  //       localStorage.removeItem('token');
-  //       localStorage.removeItem('user');
-  //       setJwt(null);
-  //       navigate("/");
-  //   }
+  const {jwt, setJwt} = useContext(JwtContext);
+    let navigate = useNavigate();
+    const user = JSON.parse(localStorage.getItem('user'));
+    const signOut = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        setJwt(null);
+        navigate("/");
+    }
 
   useEffect(() => {
     axios
@@ -73,9 +73,9 @@ export const Home = () => {
 
   
 
-  return  ( 
+  return ( 
     <>
-      
+    
       <div>
         <OwlCarousel className="owl-theme" {...options}>
           <div className="card__item">
@@ -134,6 +134,8 @@ export const Home = () => {
         </ul>
         <Nav></Nav>
       </div>
+     
     </>
-  ) 
-};
+  
+    );
+}

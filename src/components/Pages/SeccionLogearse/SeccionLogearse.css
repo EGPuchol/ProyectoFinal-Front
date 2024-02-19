@@ -41,3 +41,29 @@ input{
 .huella{
     width: 20%;
 }
+
+.textoRegistro {
+    width: 70%;
+}
+
+.todoRegistro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.accederHome {
+    border: 3px solid #c4ef92;
+    background-color: #8bc34a;
+    color: white;
+    border-radius: 50px;
+    padding: 5px 15px;
+}
+
+h2 {
+    margin-bottom: 0;
+    color: #6b9837;
+}

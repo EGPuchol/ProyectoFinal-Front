@@ -113,7 +113,7 @@ export const Carrousel = () => {
     <div className='item3'>
         <img className='imagenCarrusel' src="images/images_bienvenida/cajita_animal.png" alt="img3" />
         <h4 className='texto3'>Si eres una asociacion sube a tus peludos para darles más difusion</h4>
-        <Link to= {"/Acceder"} ><button>Acceder</button></Link>
+        <Link to= {"/Acceder"} ><button className='primeracceder'>Acceder</button></Link>
     </div>
         </OwlCarousel>
         </div>
