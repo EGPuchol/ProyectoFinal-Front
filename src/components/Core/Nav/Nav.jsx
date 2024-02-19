@@ -4,7 +4,7 @@ import "./Nav.css"
 export const Nav = () => {
   return (
     <div className="Nav">
-      <Link to={"/"} className="botonNav" src="/iconos">
+      <Link to={"/Home"} className="botonNav" src="/iconos">
         <img className="img__nav" src="iconos\primarios\refugio-de-animales.png"></img>
       </Link>
       <Link to={"/Mapa"} className="botonNav">
