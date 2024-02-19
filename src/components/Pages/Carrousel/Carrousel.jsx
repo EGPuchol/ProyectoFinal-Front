@@ -58,8 +58,8 @@ export const Carrousel = () => {
         <div>
             {loading ? (
             <div>
-                 <img className='petmatch__logo' src="images\images_bienvenida\huella_logo.png" alt="" />
-                <h2 className='petmatch__title'>PETMATCH</h2>
+                 {/* <img className='petmatch__logo' src="images\images_bienvenida\huella_logo.png" alt="" /> */}
+                {/* <h2 className='petmatch__title'>PETMATCH</h2> */}
             <div class="loader">
          <div class="dog">
             <div class="dog-body">
