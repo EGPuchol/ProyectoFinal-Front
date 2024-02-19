@@ -73,17 +73,13 @@ export const Home = () => {
 
   
 
-  return /*jwt && user ?*/ ( 
+
+  return ( 
     <>
-    {/* <p>
-            Welcome! {user.name}
-            <button
-                onClick={signOut}
-            >
-                Sign out
-            </button>
-        </p>
-       */}
+    
+
+    
+
       <div>
         <OwlCarousel className="owl-theme" {...options}>
           <div className="card__item">
@@ -140,12 +136,14 @@ export const Home = () => {
             </li>
           ))}
         </ul>
+<Nav></Nav>
       </div>
-        <div>
-        <Nav></Nav>
-        </div>
+
+     
     </>
-  )/*: (
-    <p>You are not logged in.</p>
-);*/
-};
+  
+    );
+}
+
+        
+

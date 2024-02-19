@@ -16,26 +16,26 @@ export const SeccionLogearse = () => {
 const { setJwt } = useContext(JwtContext);
 
 const onSubmit = formData => {
-  API.post('login', formData).then(res => {
+  API.post('authenticate', formData).then(res => {
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
       setJwt(true);
   })
 }
-
+console.log(API.post);
   return (
     <div className='todoRegistro'>
       <div className='registrarse'>
 
       <img className='huella' src="images/images_bienvenida/huella_logo.png" alt="fotodePetMatch" />
 
-      <h2 className='textoRegistro'>Bienvenido a PetMatch. Para continuar, inicia sesion o registrate</h2>
+      <h2 className='textoRegistro'>Bienvenido a PetMatch. Para continuar, inicia sesion </h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
             
             <label className='logearse'>
   
-            <input type="text" placeholder='alguien@gmail.com' {...register("correo", {required:true})}/>
+            <input type="text" placeholder='nombre de usuario' {...register("nombreUsuario", {required:true})}/>
 
             <input type="string" placeholder='abcd1234'{...register("contraseña", {required:true, minLength: {value: 8, message: "la contraseña tiene que ser de minimo 8 caracteres e incluir numeros y letras"}})} />
             </label>
@@ -43,8 +43,8 @@ const onSubmit = formData => {
         </form>
 
         <div className='botonesRegistro'>
-        <Link to={"/Home"} className='iniciar'><input type='submit' value='login' /></Link>
-        <Link to={"/Registrarse"} className='registrarse'><button>Registrarse</button></Link>
+        <Link to={"/Home"} className='iniciar'><button className='accederHome'>Acceder</button>  </Link>
+     
         </div>
       </div>
     </div>

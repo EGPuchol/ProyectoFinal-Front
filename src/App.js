@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route, Navigate, NavLink} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './components/Pages/Home/Home';
 import SeccionMapa  from './components/Pages/SeccionMapa/SeccionMapa';
 // import { SeccionAnimales } from './components/Pages/SeccionAnimales/SeccionAnimales';
