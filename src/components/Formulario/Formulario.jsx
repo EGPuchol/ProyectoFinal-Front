@@ -5,7 +5,9 @@ import "./Formulario.css";
 import BarraProgreso from "./BarraProgreso";
 
 export const Formulario = ({ statusAdop }) => {
-  // Estado inicial para guardar los valores del formulario
+  
+  /* El estado inicial con el que guardamos la info */
+
   const initialState = {
     NombreYapellidos: "",
     Email: "",
@@ -21,7 +23,7 @@ export const Formulario = ({ statusAdop }) => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Recuperar _id del estado de navegación si está disponible
+  /* recuperamos el _id del estado de navegación si está disponible */
   const { _id } = location.state || {};
 
   const handleInput = (ev) => {
@@ -36,15 +38,15 @@ export const Formulario = ({ statusAdop }) => {
   const submit = (ev) => {
     ev.preventDefault();
 
-    // Aquí podrías guardar el estado en localStorage o manejarlo como necesites
+   
     console.log("Estado del formulario:", state);
     console.log("ID del animal:", _id);
 
-    // Navegar al siguiente formulario y pasar el estado actual junto con _id
+   
     navigate("/Formulario2", { state: { ...state, _id } });
 
-    // Opcional: limpiar el formulario una vez enviado
-    // setState(initialState);
+    /*  Opcional: limpiar el formulario una vez enviado */
+    /* setState(initialState); */
   };
 
   return (

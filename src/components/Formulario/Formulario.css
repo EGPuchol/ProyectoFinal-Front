@@ -7,11 +7,11 @@
 
 .formulario h5 {
   text-align: center;
-  color: #8bc34a; /* Verde específico para títulos */
+  color: #76a03f; /* Verde específico para títulos */
 }
 
 .formulario h3 {
-  color: #00574B; /* Azul verdoso oscuro para subsecciones */
+  color: #8bc34a; 
   margin-bottom: 15px;
 }
 
@@ -33,7 +33,7 @@
   font-style: italic;
 }
 
-/* Ajustes específicos para grupos de botones de radio */
+/* Ajustes específicos para los radio */
 .formulario .radio-group {
   display: grid;
   grid-template-columns: 1fr auto auto; /* 1fr para la pregunta, auto para cada opción de radio */
@@ -45,7 +45,7 @@
   display: block;
 }
 
-/* Estilos personalizados para botones de radio */
+/* Estilos personalizados para los radio */
 .formulario input[type="radio"] + label {
   position: relative;
   padding-left: 25px;
@@ -97,20 +97,20 @@
     border-radius: 10px;
     position: relative;
     width: 60%; /* Hace el rectángulo vertical ajustando el ancho */
-    max-width: 500px; /* Ajusta el aspecto más vertical */
+    max-width: 500px; /* Ajusta el aspecto a que sea más vertical */
     text-align: center; /* Centra el contenido */
   }
 
   .popup-content h2 {
     color: #8bc34a; 
-    
+
     margin-top: 0;
     margin-bottom: 20px; /* Ajustar*/
   }
   
   .close-popup {
     position: absolute;
-    top: 10px; /* Ajusta para asegurarte de que la "X" esté visible */
+    top: 10px; /* Ajusta la "X" para q esté visible */
     left: 10px; /* Mueve la "X" al lado izquierdo */
     border: none;
     background-color: #ccc; /* Fondo gris para la "X" */
